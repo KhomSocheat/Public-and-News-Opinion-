@@ -15,38 +15,38 @@
 
   <style>
     :root{
-      --bg-red:  #ff2442; 
-      --bg-dark: #0d0d0d; 
+      --bg-red:   #ff2442; 
+      --bg-blue:  #0044ff; 
+      --bg-dark:  #0b0b1a; 
+      --bg-dark2: #1a1a2e;
     }
 
     body{
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       min-height: 100vh;
 
-      /* RED + BLACK animated background */
-      background:
-        radial-gradient(900px 600px at 82% 18%, rgba(255,36,66,.30) 0%, transparent 60%),
-        radial-gradient(850px 550px at 18% 88%, rgba(0,0,0,.55) 0%, transparent 65%),
-        linear-gradient(135deg,
-          var(--bg-dark) 0%,
-          #1a1a1a 25%,
-          #ff4b6e 55%,
-          var(--bg-red) 85%,
-          #000 100%);
-      background-size: 120% 120%;
-      animation: bgShift 18s ease-in-out infinite alternate;
+      /* Blue + Red animated background */
+      background: radial-gradient(circle at top right, rgba(255,36,66,0.4), transparent 60%),
+                  radial-gradient(circle at bottom left, rgba(0,68,255,0.35), transparent 65%),
+                  linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark2) 35%, var(--bg-blue) 70%, var(--bg-red) 100%);
+      background-size: 220% 220%;
+      animation: coolShift 18s ease-in-out infinite alternate;
       color: #fff;
     }
-    @keyframes bgShift {
-      from { background-position: 0% 0%; }
-      to   { background-position: 100% 100%; }
+
+    @keyframes coolShift {
+      0%   { background-position: 0% 0%; }
+      50%  { background-position: 80% 100%; }
+      100% { background-position: 100% 0%; }
     }
 
     .hub-card{
-      background: rgba(0,0,0,.5);
+      background: rgba(0,0,0,.55);
       border-radius: 1rem;
-      box-shadow: 0 1rem 3rem rgba(0,0,0,.4);
+      box-shadow: 0 1rem 3rem rgba(0,0,0,.55);
+      backdrop-filter: blur(6px);
     }
+
     .brand-badge{
       width: 104px; height: 104px;
       display: inline-grid; place-items: center;
@@ -58,7 +58,7 @@
       content:"";
       position:absolute; inset:-2px;
       border-radius: inherit;
-      background: conic-gradient(from 180deg,#ff4c6f,#660000,#ff2442,#330000,#ff4c6f);
+      background: conic-gradient(from 180deg,#0044ff,#660000,#ff2442,#001144,#0044ff);
       filter: blur(8px); opacity:.6; z-index:-1;
     }
 
@@ -79,7 +79,7 @@
 
     .icon-circle{ width:44px; height:44px; }
     .gradient-title{
-      background: linear-gradient(90deg,#ffffff 0%, #ffb3c1 40%, #ffffff 100%);
+      background: linear-gradient(90deg,#ffffff 0%, #99cfff 40%, #ffb3c1 80%, #ffffff 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
   </style>
